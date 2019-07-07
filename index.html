@@ -15,27 +15,31 @@
         
         .children {
             width: 200px;
-            height: 200px;
+            height: 400px;
+            border: 1px solid black;
             background-color: gold;
+        }
+        
+        .h100 {
+            height: 100%;
         }
     </style>
 </head>
 
 <body>
     <div id="containner">
-        <div class="children">1</div>
+        <div class="children h100" style="height: 100%">1</div>
         <div class="children">2</div>
         <div class="children">3</div>
         <div class="children">4</div>
         <div class="children">5</div>
     </div>
-    <script src="Mathparalax.js"></script>
     <script src="paralax.js"></script>
     <script>
-        let speeds = [0.1, 0.2, 0.1, 0.5, 0.1];
+        let speeds = [0.1, 0.3, 0.1, 0.5, 0.001];
         let obj = {
             containner: document.getElementById('containner'),
-            paddings: [100, 100, 100, 100, 100],
+            paddings: [0, 500, 500, 100, 100],
             speeds: speeds
         }
         let parala = new paralax(obj);

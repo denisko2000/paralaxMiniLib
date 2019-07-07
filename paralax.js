@@ -35,7 +35,6 @@ paralax.prototype.SetChildrenStyles = function() {
         this.PaddingHeight[index] = this.paddings[index] + this.heights[index];
         this.transform[index] = 0;
         this.speeds[index] = (this.obj.speeds[index]) ? this.obj.speeds[index] : 1;
-        console.log(this.speeds)
         if (this.paddings[index] < this.ContainnerHeight) {
             this.objScroll.push(index);
         }
@@ -43,6 +42,11 @@ paralax.prototype.SetChildrenStyles = function() {
         top:' + ((this.paddings[index] < this.ContainnerHeight) ? this.paddings[index] : this.ContainnerHeight) + 'px \
         '
     };
+    console.log(this.PaddingHeight);
+    console.log(this.paddings);
+    console.log(this.const);
+
+
 };
 paralax.prototype.satWheel = function() {
     let ts = this;
@@ -58,13 +62,11 @@ paralax.prototype.satWheel = function() {
             }
         }
         for (let index = 0; index < ts.objScroll.length; index++) {
-            if (delta < 0 && ts.paddings[ts.objScroll[index] + 1] + ts.transform[ts.objScroll[index] + 1] - ts.PaddingHeight[ts.objScroll[index]] - ts.transform[ts.objScroll[index]] >= ts.const[ts.objScroll[index]] && ts.objScroll.indexOf(ts.objScroll[index] + 1) == -1) {
+            if (delta < 0 && ts.paddings[ts.objScroll[index] + 1] + ts.transform[ts.objScroll[index] + 1] - ts.PaddingHeight[ts.objScroll[index]] - ts.transform[ts.objScroll[index]] >= ts.const[ts.objScroll[index] + 1] && ts.objScroll.indexOf(ts.objScroll[index] + 1) == -1) {
                 ts.objScroll.push(ts.objScroll[index] + 1);
-                alert(ts.objScroll[index] + 1)
             }
             if (delta > 0 && ts.paddings[ts.objScroll[index]] + ts.transform[ts.objScroll[index]] - ts.PaddingHeight[ts.objScroll[index] - 1] - ts.transform[ts.objScroll[index] - 1] >= ts.const[ts.objScroll[index]] && ts.objScroll.indexOf(ts.objScroll[index] - 1) == -1) {
                 ts.objScroll.push(ts.objScroll[index] - 1);
-                alert(ts.objScroll[index] - 1)
             }
         }
     })
