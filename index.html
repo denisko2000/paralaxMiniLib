@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #containner {
+            width: 100%;
+            height: 800px;
+            background-color: wheat;
+        }
+        
+        .children {
+            width: 200px;
+            height: 200px;
+            background-color: gold;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="containner">
+        <div class="children">1</div>
+        <div class="children">2</div>
+        <div class="children">3</div>
+        <div class="children">4</div>
+        <div class="children">5</div>
+    </div>
+    <script src="Mathparalax.js"></script>
+    <script src="paralax.js"></script>
+    <script>
+        let speeds = [0.1, 0.2, 0.1, 0.5, 0.1];
+        let obj = {
+            containner: document.getElementById('containner'),
+            paddings: [100, 100, 100, 100, 100],
+            speeds: speeds
+        }
+        let parala = new paralax(obj);
+    </script>
+</body>
+
+</html>
